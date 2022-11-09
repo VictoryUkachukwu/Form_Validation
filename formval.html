@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="../assets/fontawesome-free-5.15.4-web/css/all.css">
+          <style>
+
+                    .myForm {
+                              background: rgba(73, 70, 70, 0.507);
+                              padding: 30px;
+                              margin-top: 5%;
+                              margin-left: 34%;
+                              width: 30%;
+                              border-radius: 7px;
+                              box-shadow: 8px 15px 8px rgba(25, 25, 70, 0.733), -4px 12px 18px rgba(26, 25, 25, 0.904);
+                    }
+
+                    label > span {
+                            color: navy;
+                    }
+
+                    input {
+                            background: rgb(224, 238, 243);
+                              padding: 10px;
+                              width: 88%;
+                              border-radius: 5px;
+                              margin: auto;
+                    }
+
+                    input:hover {
+                              box-shadow: 12px 15px 18px rgb(25, 25, 70), -4px 12px 18px rgb(26, 25, 25);
+                    }
+
+                    input:focus {
+                              background: rgb(187, 183, 230);
+                              box-shadow: 3px 15px 8px rgb(25, 25, 70), -4px 12px 18px rgb(26, 25, 25);
+                    }
+
+                    [type="submit"], [type="reset"] {
+                              width: 25%;
+                              color: white;
+                              background: navy;
+                              border: none;
+                              margin-right: 12px;
+                              border-radius: 5px;
+                    }
+
+                    [type="submit"]:focus, [type="reset"]:focus {
+                              background: navy;
+                    }
+
+                    [type="reset"] {
+                            float: right;
+                    }
+
+
+          </style>
+</head>
+<body>
+          <script>
+                    function formValidation() {
+// variables for all form inputs
+                              var firstName = document.forms["hiForm"] ["firstName"].value;
+                              var lastName = document.forms["hiForm"] ["lastName"].value;
+                              var phnNum = document.forms["hiForm"] ["phnNum"].value;
+                              var myEmail = document.forms["hiForm"] ["myEmail"].value;
+                              var resAdd = document.forms["hiForm"] ["resAdd"].value;
+                              var myPass = document.forms["hiForm"] ["myPass"].value;
+                              var conMyPass = document.forms["hiForm"] ["conMyPass"].value;
+                              var stringCheck = /^[a-zA-Z]+[a-zA-Z]+$/;                          //for all string test
+                              var numCheck = /^[0-9]+[0-9]+$/;                                    //for number test
+
+
+//If first name is empty...
+                              if (firstName == "" || null) {
+                                        document.getElementById("firstName").style.borderColor = "#800400";
+                                        document.getElementById("noInput").innerHTML = "Oops! You omitted your first name";
+                                        document.getElementById("noInput").style.color = "#800400";
+                                        document.getElementById("noInput01").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if first name contains any data type asides a string...
+                              else if (!stringCheck.test(firstName)) {
+                                        document.getElementById("firstName").style.borderColor = "#800400";
+                                        document.getElementById("noInput").innerHTML = "Invalid input!";
+                                        document.getElementById("noInput").style.color = "#800400";
+                                        document.getElementById("noInput01").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if first name contains a string...
+                              else if (typeof firstName == "string") {
+                                        document.getElementById("firstName").style.borderColor = "navy";
+                                        document.getElementById("noInput").innerHTML = "";
+                                        document.getElementById("noInput01").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+//If last name is empty...
+                              if (lastName == "" || null) {
+                                        document.getElementById("lastName").style.borderColor = "#800400";
+                                        document.getElementById("noInput2").innerHTML = "Oops! You omitted your last name";
+                                        document.getElementById("noInput2").style.color = "#800400";
+                                        document.getElementById("noInput02").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if last name contains any data type asides a string...
+                              else if (!stringCheck.test(lastName)) {
+                                        document.getElementById("lastName").style.borderColor = "#800400";
+                                        document.getElementById("noInput2").innerHTML = "Invalid input!";
+                                        document.getElementById("noInput2").style.color = "#800400";
+                                        document.getElementById("noInput02").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if last name contains a string...
+                              else if (typeof lastName == "string") {
+                                        document.getElementById("lastName").style.borderColor = "navy";
+                                        document.getElementById("noInput2").innerHTML = "";
+                                        document.getElementById("noInput02").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+//if phone number input is empty...
+                              if (phnNum == "" || null) {
+                                        document.getElementById("phnNum").style.borderColor = "#800400";
+                                        document.getElementById("noInput3").innerHTML = "Oops! You omitted your phone number";
+                                        document.getElementById("noInput3").style.color = "#800400";
+                                        document.getElementById("noInput03").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if phone number contains other data types asides number...
+                              else if (!numCheck.test(phnNum)) {
+                                document.getElementById("phnNum").style.borderColor = "#800400";
+                                document.getElementById("noInput3").innerHTML = "Invalid input!";
+                                document.getElementById("noInput3").style.color = "#800400";
+                                document.getElementById("noInput03").innerHTML = `
+                                <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                `;
+                                return false;
+                        }
+//if phone number input length is not equal to 11 digits...
+                              else if (phnNum.length !== 11) {
+                                        document.getElementById("phnNum").style.borderColor = "#800400";
+                                        document.getElementById("noInput3").innerHTML = "Number should contain 11 digits!";
+                                        document.getElementById("noInput3").style.color = "#800400";
+                                        document.getElementById("noInput03").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;          
+                              }
+//if all conditions for phone number input are met...
+                              else {
+                                        document.getElementById("phnNum").style.borderColor = "navy";
+                                        document.getElementById("noInput3").innerHTML = "";
+                                        document.getElementById("noInput03").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+//if email address input is empty...
+                              if (myEmail == "" || null) {
+                                        document.getElementById("myEmail").style.borderColor = "#800400";
+                                        document.getElementById("noInput4").innerHTML = "Oops! You omitted your email address";
+                                        document.getElementById("noInput4").style.color = "#800400";
+                                        document.getElementById("noInput04").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if it is filled...(input type="email" does the test for accuracy automatically)...
+                              else {
+                                        document.getElementById("myEmail").style.borderColor = "navy";
+                                        document.getElementById("noInput4").innerHTML = "";
+                                        document.getElementById("noInput04").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+//if the residential address input is blank...
+                              if (resAdd == "" || null) {
+                                        document.getElementById("resAdd").style.borderColor = "#800400";
+                                        document.getElementById("noInput5").innerHTML = "Oops! You omitted your residential address";
+                                        document.getElementById("noInput5").style.color = "#800400";
+                                        document.getElementById("noInput05").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if the residential address contains 
+                              else {
+                                        document.getElementById("resAdd").style.borderColor = "navy";
+                                        document.getElementById("noInput5").innerHTML = "";
+                                        document.getElementById("noInput05").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+//if password input is empty...
+                              if (myPass == "" || null) {
+                                        document.getElementById("myPass").style.borderColor = "#800400";
+                                        document.getElementById("noInput6").innerHTML = "Oops! You omitted a password";
+                                        document.getElementById("len").style = "display: none;"
+                                        document.getElementById("noInput6").style.color = "#800400";
+                                        document.getElementById("noInput06").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }   
+//if password length id less than 10 (desired length)...           
+                              else if (myPass.length < 10) {
+                                        document.getElementById("myPass").style.borderColor = "#800400";
+                                        document.getElementById("noInput6").innerHTML = "";
+                                        document.getElementById("len").style = "color: #800400; font-weight: bold;"
+                                        document.getElementById("noInput06").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+//if password meets the criteria...
+                              else if (myPass.length >= 10) {
+                                        document.getElementById("myPass").style.borderColor = "navy";
+                                        document.getElementById("noInput6").innerHTML = "";
+                                        document.getElementById("len").style = "color: navy; font-weight: bold;"
+                                        document.getElementById("noInput06").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+//..........................................................................................................................................
+
+                              if (conMyPass == "" || null) {
+                                        document.getElementById("conMyPass").style.borderColor = "#800400";
+                                        document.getElementById("noInput7").innerHTML = "Please confirm password";
+                                        document.getElementById("noInput7").style.color = "#800400";
+                                        document.getElementById("noInput07").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+                              else if (conMyPass !== myPass) {
+                                        document.getElementById("conMyPass").style.borderColor = "#800400";
+                                        document.getElementById("noInput7").innerHTML = "Password does not match!";
+                                        document.getElementById("noInput7").style.color = "#800400";
+                                        document.getElementById("noInput07").innerHTML = `
+                                        <i class="fas fa-times-circle" style="color: #800400;"></i>
+                                        `;
+                                        return false;
+                              }
+                              else {
+                                        document.getElementById("conMyPass").style.borderColor = "navy";
+                                        document.getElementById("noInput7").innerHTML = "Password matched!";
+                                        document.getElementById("noInput7").style.color = "navy";
+                                        document.getElementById("noInput07").innerHTML = `
+                                        <i class="fas fa-check-circle" style="color: navy;"></i>
+                                        `;
+                              }
+
+                              function showFunc(){
+                            var show = document.getElementById("myPass");
+
+                            if (show.type == "password") {
+                                    show.type == "text";
+                            }
+                            else {
+                                    show.type == "password";
+                            }
+                    }
+ 
+                    }
+
+          </script>
+
+          <h1 style="text-align: center; margin-bottom: -40px; color: navy;"> Registration Form</h1>
+
+<div class="myForm">
+          <form name="hiForm" action="https://www.google.com" method="post" autocomplete="on" onsubmit="return formValidation()">
+
+<!-- first name -->
+                    <label for="firstName"><span>*</span>First Name: </label> <br>
+                              <input type="text" name="firstName" id="firstName" placeholder="Input first name">
+                              <span id="noInput01"></span><br>
+                              <span id="noInput"></span><br><br>
+
+<!-- last name -->
+                    <label for="lastName"><span>*</span>Last Name: </label><br>
+                              <input type="text" name="lastName" id="lastName" placeholder="Input last name">
+                              <span id="noInput02"></span><br>
+                              <span id="noInput2"></span><br><br>
+
+<!-- phone number -->
+                    <label for="phnNum"><span>*</span>Phone Number: </label><br>
+                              <input type="tel" name="phnNum" id="phnNum" placeholder="e.g: 08123456789">
+                              <span id="noInput03"></span><br>
+                              <span id="noInput3"></span><br><br>
+
+<!-- email address -->
+                    <label for="email"><span>*</span>Email Address: </label><br>
+                              <input type="email" name="myEmail" id="myEmail" placeholder="example@gmail.com">
+                              <span id="noInput04"></span><br>
+                              <span id="noInput4"></span><br><br>
+
+<!-- residential address -->
+                    <label for="resAdd"><span>*</span>Residential Address: </label><br>
+                              <input type="text" name="resAdd" id="resAdd" placeholder="Input residential address">
+                              <span id="noInput05"></span><br>
+                              <span id="noInput5"></span><br><br>
+
+<!-- password -->
+                    <label for="myPass"><span>*</span>Password: </label><br>
+                              <input type="password" name="myPass" id="myPass" placeholder="Input password">
+                              <i class="fas fa-eye-slash" onclick="showFunc()" style="margin-left: -30px; margin-right: 5px; color: navy; cursor: pointer;"></i>
+                              <span id="noInput06"></span><br>
+                              <span id="noInput6"></span>
+                              <i id="len"> Min-length = 10 characters</i><br><br>
+
+
+<!-- confirm password -->
+                    <label for="conMyPass"><span>*</span>Confirm Password: </label><br>
+                              <input type="password" name="conMyPass" id="conMyPass" placeholder="Confirm password">
+                              <i class="fas fa-eye-slash" style="margin-left: -30px; margin-right: 5px; color: navy;"></i>
+                              <span id="noInput07"></span><br>
+                              <span id="noInput7"></span><br><br>
+
+<!-- submit & reset -->
+                    <input type="submit" value="Submit">
+                    <input type="reset" name="Reset">
+          </form>
+</div>
+
+</body>
+</html>
